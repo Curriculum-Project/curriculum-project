@@ -9,34 +9,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout the repository
-      uses: actions/checkout@v3
+      - name: Checkout the repository
+        uses: actions/checkout@v3
 
-    - name: Set up Git user
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Set up Git user
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-    - name: Create issue as Markdown file
-      run: |
-        mkdir -p issues
-        echo "# ${{ github.event.issue.title }}" > issues/issue-${{ github.event.issue.number }}.md
-        echo "" >> issues/issue-${{ github.event.issue.number }}.md
-        echo "## Descrição" >> issues/issue-${{ github.event.issue.number }}.md
-        echo "${{ github.event.issue.body }}" >> issues/issue-${{ github.event.issue.number }}.md
-        echo "" >> issues/issue-${{ github.event.issue.number }}.md
-        echo "## Autor: ${{ github.event.issue.user.login }}" >> issues/issue-${{ github.event.issue.number }}.md
-        echo "Issue URL: [${{ github.event.issue.html_url }}](${{ github.event.issue.html_url }})" >> issues/issue-${{ github.event.issue.number }}.md
+      - name: Create issue as Markdown file
+        run: |
+          mkdir -p issues
+          echo "# ${{ github.event.issue.title }}" > issues/issue-${{ github.event.issue.number }}.md
+          echo "" >> issues/issue-${{ github.event.issue.number }}.md
+          echo "## Descrição" >> issues/issue-${{ github.event.issue.number }}.md
+          echo "${{ github.event.issue.body }}" >> issues/issue-${{ github.event.issue.number }}.md
+          echo "" >> issues/issue-${{ github.event.issue.number }}.md
+          echo "## Autor: ${{ github.event.issue.user.login }}" >> issues/issue-${{ github.event.issue.number }}.md
+          echo "Issue URL: [${{ github.event.issue.html_url }}](${{ github.event.issue.html_url }})" >> issues/issue-${{ github.event.issue.number }}.md
 
-    - name: Commit changes
-      run: |
-        git add issues/issue-${{ github.event.issue.number }}.md
-        git commit -m "Add issue #${{ github.event.issue.number }} as Markdown file"
-
-    - name: Push changes
-      uses: ad-m/github-push-action@v1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: main
-        force: true
+      - name: Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Add issue #${{ github.event.issue.number }} as Markdown file"
+          branch: main
+          file_pattern: issues/*
 
