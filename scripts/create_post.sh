@@ -1,5 +1,5 @@
 path_post="_posts/"
-file_date=$GITHUB_ISSUE_CREATED_AT | -c1-10
+file_date="$GITHUB_ISSUE_CREATED_AT" | -c1-10
 file_name="{$file_date}-post.md"
 file_path="${path_post}${file_name}"
 
