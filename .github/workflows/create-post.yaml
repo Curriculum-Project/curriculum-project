@@ -21,9 +21,8 @@ jobs:
       - name: Create issue as Markdown file
         run: |
           mkdir -p posts
-          chmod +x  ./scripts/create_post.sh
-          ./scripts/create_post.sh
-        shell: bash
+          chmod +x ./scripts/create_post.sh
+          bash ./scripts/create_post.sh
 
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v4

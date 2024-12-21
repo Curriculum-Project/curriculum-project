@@ -1,6 +1,6 @@
-path_post=posts/
-file_name=${{ github.event.issue.name }}
-file_path=${!path_post}${!file_name}.yaml
+path_post="posts/"
+file_name="post-${{ github.event.issue.number }}.yaml"
+file_path="${path_post}${file_name}"
 
 echo "created: ${{ github.event.issue.created_at }}" >> ${!file_path}
 echo "" >> ${!file_path}
