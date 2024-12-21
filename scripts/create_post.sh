@@ -1,13 +1,16 @@
 path_post=posts/
-file_name=${{ github.event.issue.number }}
-file_path=${!path_post}${!file_name}.md
+file_name=${{ github.event.issue.name }}
+file_path=${!path_post}${!file_name}.yaml
 
-echo "# ${{ github.event.issue.title }}" > ${!file_path}
+echo "created: ${{ github.event.issue.created_at }}" >> ${!file_path}
 echo "" >> ${!file_path}
 
-echo "## Descrição" >> ${!file_path}
-echo "${{ github.event.issue.body }}" >> ${!file_path}
+echo "title:" > ${!file_name}
 echo "" >> ${!file_path}
 
-echo "## Autor: ${{ github.event.issue.user.login }}" >> ${!file_path}
-echo "Issue URL: [${{ github.event.issue.html_url }}](${{ github.event.issue.html_url }})" >> ${!file_path}
+echo "description: |" >> ${!file_path}
+echo "    ${{ github.event.issue.body }}" >> ${!file_path}
+echo "" >> ${!file_path}
+
+echo "author: ${{ github.event.issue.user.login }}" >> ${!file_path}
+echo "issue_url: ${{ github.event.issue.html_url }}" >> ${!file_path} 

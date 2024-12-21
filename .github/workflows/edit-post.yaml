@@ -1,8 +1,8 @@
-name: Create Post
+name: Edit Post
 
 on:
   issues:
-    types: [labeled]
+    types: [edited]
 
 jobs:
   create-post:
@@ -12,11 +12,6 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
-
-      - name: Set up Git user
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Create issue as Markdown file
         run: |
@@ -28,7 +23,7 @@ jobs:
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Create post #${{ github.event.issue.name }}"
+          commit_message: "Add issue #${{ github.event.issue.number }} as Markdown file"
           branch: main
           file_pattern: issues/*
 
