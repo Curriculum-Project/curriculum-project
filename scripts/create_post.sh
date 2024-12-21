@@ -1,6 +1,6 @@
 path_post="_posts/"
-file_date=expr substr $GITHUB_ISSUE_CREATED_AT 0 10
-file_name="{$file_date}-post.md"
+file_date=echo "$GITHUB_ISSUE_CREATED_AT" | cut -c1-10
+file_name="{$file_date}-post-$GITHUB_ISSUE_NUMBER.md"
 file_path="${path_post}${file_name}"
 
 echo "---" >> ${file_path}
