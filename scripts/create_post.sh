@@ -2,8 +2,6 @@ path_post="posts/"
 file_name="post-$GITHUB_ISSUE_NUMBER.yaml"
 file_path="${path_post}${file_name}"
 
-ls
-
 echo "created: $GITHUB_ISSUE_CREATED_AT" >> ${file_path}
 echo "" >> ${file_path}
 

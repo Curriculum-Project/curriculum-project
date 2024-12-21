@@ -20,7 +20,6 @@ jobs:
 
       - name: Create issue as Markdown file
         run: |
-          mkdir -p posts
           chmod +x ./scripts/create_post.sh
           ./scripts/create_post.sh
         shell: bash
@@ -35,7 +34,7 @@ jobs:
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Create post #${{ github.event.issue.name }}"
+          commit_message: "Create post ${{ github.event.issue.name }}"
           branch: main
           file_pattern: issues/*
 
