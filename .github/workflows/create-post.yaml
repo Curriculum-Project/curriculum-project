@@ -21,6 +21,7 @@ jobs:
       - name: Create issue as Markdown file
         run: |
           mkdir -p posts
+          ls
           chmod +x  ../scripts/create_post.sh
           ../scripts/create_post.sh
         shell: bash
