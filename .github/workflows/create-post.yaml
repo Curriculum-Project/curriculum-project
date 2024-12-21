@@ -1,0 +1,33 @@
+name: Issue to Markdown
+
+on:
+  issues:
+    types: [opened, labeled]
+
+jobs:
+  create-post:
+    runs-on: ubuntu-latest
+
+    if: github.event.label.name == 'post'
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Set up Git user
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create issue as Markdown file
+        run: |
+          mkdir -p posts
+          ../scripts/create_post.sh
+        shell: bash
+
+      - name: Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Add issue #${{ github.event.issue.number }} as Markdown file"
+          branch: main
+          file_pattern: issues/*
+
