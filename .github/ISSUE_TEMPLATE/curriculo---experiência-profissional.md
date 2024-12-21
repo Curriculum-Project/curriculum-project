@@ -2,8 +2,8 @@
 name: Curriculo - Experiência Profissional
 about: "....s"
 title: ''
-labels: ''
-assignees: LeoSilvaGomes
+labels: experiencia_profissional
+assignees: ''
 
 ---
 
