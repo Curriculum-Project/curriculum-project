@@ -1,4 +1,4 @@
-path_post="page/_posts/"
+path_post="_posts/"
 file_name="post-$GITHUB_ISSUE_NUMBER.md"
 file_path="${path_post}${file_name}"
 
