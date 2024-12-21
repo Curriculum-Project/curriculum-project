@@ -36,5 +36,5 @@ jobs:
         with:
           commit_message: "Create post ${{ github.event.issue.name }}"
           branch: main
-          file_pattern: issues/*
+          file_pattern: posts/*
 
