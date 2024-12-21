@@ -8,4 +8,4 @@ echo "" >> ${file_path}
 echo "nome_empresa: $GITHUB_ISSUE_TITLE" >> ${file_path}
 echo "" >> ${file_path}
 
-"$GITHUB_ISSUE_BODY"
+echo "$GITHUB_ISSUE_BODY"  >> ${file_path}
