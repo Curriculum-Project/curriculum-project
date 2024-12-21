@@ -1,0 +1,38 @@
+name: Create Post
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  create-experiencia-profissional:
+    runs-on: ubuntu-latest
+
+    if: github.event.label.name == 'experiencia_profissional'
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Set up Git user
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create issue as Markdown file
+        run: |
+          chmod +x ./scripts/create_experiencia_profissional.sh
+          ./scripts/create_experiencia_profissional.sh
+        shell: bash
+        env:
+          GITHUB_ISSUE_NUMBER: ${{ github.event.issue.number }}
+          GITHUB_ISSUE_CREATED_AT: ${{ github.event.issue.created_at }}
+          GITHUB_ISSUE_BODY: ${{ github.event.issue.body }}
+          GITHUB_ISSUE_TITLE: ${{ github.event.issue.title }}
+
+      - name: Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Create post ${{ github.event.issue.name }}"
+          branch: main
+          file_pattern: _posts/*
+
