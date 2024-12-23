@@ -15,7 +15,6 @@
 
     color: white;
     width: 100px;
-
     
     h1 {
         margin: 0px;
@@ -36,7 +35,7 @@
     background-color: #262626;
     color: white;
     
-    padding: 10px 0px;
+    padding: 10px 40px;
 
     h1 {
         margin-bottom: 0px;
@@ -59,12 +58,11 @@ svg {
     min-height: 100%;
 
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .about-content {
-    width: fit-content;
-
     margin: 30px 50px;
 
     @media only screen and (max-width: 770px) {
@@ -120,5 +118,37 @@ svg {
 
     .keywords {
         margin-bottom: 0px;
+    }
+}
+
+.habilities-content {
+    background-color: #eccd00;
+    padding: 30px 50px;
+
+    @media only screen and (max-width: 770px) {
+        margin: 30px;
+    }
+}
+
+.habilities-description {
+    width: 100%;
+    margin-top: 15px;
+    display: grid;
+    grid: auto-flow / 1fr 1fr 1fr;
+}
+
+.hability {
+    p {
+        font-weight: 300;
+        margin: 0px;
+        margin-bottom: 5px;
+    }
+
+    ul {
+        margin-left: 20px;
+    }
+
+    li {
+        font-size: 12px;
     }
 }

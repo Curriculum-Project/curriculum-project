@@ -19,8 +19,8 @@ collections:
     output: true
   about:
     output: true
-  # organizations:
-  #   output: true
+  habilities:
+    output: true
   # mentors:
   #   output: true
 
