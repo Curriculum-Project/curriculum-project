@@ -17,8 +17,8 @@ collections:
     output: true
   profissional-experience:
     output: true
-  # projects:
-  #   output: true
+  about:
+    output: true
   # organizations:
   #   output: true
   # mentors:

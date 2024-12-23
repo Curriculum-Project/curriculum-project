@@ -1,4 +1,4 @@
-.projects {
+.about {
     display: flex;
     color: #000;
 
@@ -7,8 +7,8 @@
     }
 }
 
-.title-projetos {
-    background-color: #0068b4;
+.title-about {
+    background-color: #262626;
 
     display: flex;
     justify-content: center;
@@ -30,10 +30,10 @@
     }
 }
 
-.title-mobile-projects {
+.title-mobile-about {
     display: none;
     
-    background-color: #0068b4;
+    background-color: #262626;
     color: white;
     
     padding: 10px 0px;
@@ -54,24 +54,29 @@ svg {
     transform-origin: center;
 }
 
-.project-wrapper {
+.about-wrapper {
     width: fit-content;
+    min-height: 100%;
+
+    display: flex;
+    align-items: center;
 }
 
-.project-content {
+.about-content {
     width: fit-content;
-    margin: 30px 50px 0px 50px;
+
+    margin: 30px 50px;
 
     @media only screen and (max-width: 770px) {
         margin: 30px;
     }
 }
 
-.project-title-content {
+.about-title-content {
     display: flex;
     align-items: center;
 
-    .project-title {
+    .about-title {
         width: -webkit-fill-available;
 
         p {
@@ -100,7 +105,7 @@ svg {
     }
 }
 
-.project-description {
+.about-description {
     margin-top: 25px;
 
     p {
@@ -115,57 +120,5 @@ svg {
 
     .keywords {
         margin-bottom: 0px;
-    }
-}
-
-.line-divide {
-    &:not(:last-of-type) {
-        height: 3px;
-        width: 50%;
-    
-        background-color: #0068b4;
-        
-        right: 0px;
-    }
-
-    margin-top: 10px;
-}
-
-.mentor-container {
-    display: flex;
-    margin-top: 12px;
-
-    @media only screen and (max-width: 770px) {
-        flex-direction: column;
-    }
-}
-
-.mentor-image-content {
-    img {
-        height: 50px;
-        width: 50px;
-        
-        border: 3px solid #0068b4;
-        border-radius: 50%;
-    }
-}
-
-.mentor-content {
-    margin-right: 25px;
-    margin-left: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    p {
-        font-size: 16px;
-        margin: 0px;
-    }
-}
-
-.mentor-social {
-    display: flex;
-    li {
-        list-style: none;
     }
 }
