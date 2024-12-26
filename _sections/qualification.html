@@ -17,7 +17,8 @@
             </div>
             <p>{{ item.description }}</p>
             <div class="box-certificate">
-                <a class="certificate" href="{{item.content}}" target="_blank"><i class="fa fa-file"></i> Certificado</a>
+                {{item.content}}
+                <a class="certificate" href="{{item.permalink}}" target="_blank"><i class="fa fa-file"></i> Certificado</a>
             </div>
         </div>
         {% endfor %}
