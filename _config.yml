@@ -21,8 +21,8 @@ collections:
     output: true
   habilities:
     output: true
-  # mentors:
-  #   output: true
+  qualification:
+    output: true
 
 # Build settings
 theme: minima
