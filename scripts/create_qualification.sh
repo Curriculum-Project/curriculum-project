@@ -14,4 +14,4 @@ echo "" >> ${file_path}
 echo "$GITHUB_ISSUE_BODY" | egrep -o '^[^---]+' >> ${file_path}
 echo "" >> ${file_path}
 echo "---" >> ${file_path}
-# echo "$GITHUB_ISSUE_BODY" | sed 's/.*[--->] *//' | grep -oP '(?<=\().*(?=\))'  >> ${file_path}
+echo "$GITHUB_ISSUE_BODY" | egrep -o '(---.*)' | grep -oP '(?<=\().*(?=\))' >> ${file_path}
