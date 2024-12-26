@@ -11,9 +11,8 @@ echo "" >> ${file_path}
 echo "nome: $GITHUB_ISSUE_TITLE" >> ${file_path}
 echo "" >> ${file_path}
 
-echo "$GITHUB_ISSUE_BODY" | egrep -ws '(---.*)' -B20 >> ${file_path}
-echo "" >> ${file_path}
+echo "$GITHUB_ISSUE_BODY" | sed -n '/---/q;p' >> ${file_path}
 
-permalink= echo "$GITHUB_ISSUE_BODY" | egrep -ws '(---.*)' -A10 | grep -oP '(?<=\().*(?=\))'
+permalink= "$GITHUB_ISSUE_BODY" | egrep -ws '(---.*)' -A10 | grep -oP '(?<=\().*(?=\))'
 echo "permalink: ${permalink}"  >> ${file_path}
 echo "---" >> ${file_path}
