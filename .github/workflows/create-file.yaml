@@ -25,15 +25,15 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      if: github.event.label.name == 'experiencia_profissional'
       - name: Create issue as Markdown file for Profissional Experience
+        if: github.event.label.name == 'experiencia_profissional'
         run: |
           chmod +x ./scripts/create_experiencia_profissional.sh
           ./scripts/create_experiencia_profissional.sh
         shell: bash
 
-      if: github.event.label.name == 'post'
       - name: Create issue as Markdown file for Post
+        if: github.event.label.name == 'post'
         run: |
           chmod +x ./scripts/create_post.sh
           ./scripts/create_post.sh
