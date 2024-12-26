@@ -39,7 +39,7 @@ jobs:
           ./scripts/create_post.sh
         shell: bash
 
-      - name: Create issue as Markdown file for Post
+      - name: Create issue as Markdown file for Qualification
         if: github.event.label.name == 'qualification'
         run: |
           chmod +x ./scripts/create_qualification.sh
