@@ -11,7 +11,6 @@ echo "" >> ${file_path}
 echo "nome: $GITHUB_ISSUE_TITLE" >> ${file_path}
 echo "" >> ${file_path}
 
-echo "$GITHUB_ISSUE_BODY" | egrep -o '^[^---]+' >> ${file_path}
+echo "$GITHUB_ISSUE_BODY" | egrep -wso '(---.*)' -B10 >> ${file_path}
 echo "" >> ${file_path}
-echo "---" >> ${file_path}
-echo "$GITHUB_ISSUE_BODY" | egrep -o '(---.*)' | grep -oP '(?<=\().*(?=\))' >> ${file_path}
+echo "$GITHUB_ISSUE_BODY" | egrep -wso '(---.*)' -A10 | grep -oP '(?<=\().*(?=\))' >> ${file_path}
