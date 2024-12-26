@@ -51,5 +51,4 @@ jobs:
         with:
           commit_message: "Create post ${{ github.event.issue.name }}"
           branch: main
-          file_pattern: _profissional-experience/*
 
