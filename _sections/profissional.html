@@ -9,14 +9,22 @@
         {% for experiences in site.profissional-experience %}
         <div class="box-content">
             <div class="box-title">
-                <h3>{{ experiences.position }}</h3>
+                <h3>{{ experiences.nome_empresa }}</h3>
                 <div class="box-detail">
-                    <h4>{{ experiences.nome_empresa }}</h4>
                     <p>{{ experiences.period }}</p>
-                    <p>{{ experiences.local }}</p>
                 </div>
             </div>
             <p>{{ experiences.description }}</p>
+            <div class="profissional-details">
+            {% for activity in experiences.activities %}
+                <div>
+                    <h4>{{ activity.nome }}</h4>
+                    <p>{{ activity.position }}</p>
+                    <p>{{ activity.period }}</p>
+                    <p><b>{{ activity.description }}</b></p>
+                </div>
+            {% endfor %}
+            </div>
         </div>
         {% endfor %}
     </div>

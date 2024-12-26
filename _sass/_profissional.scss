@@ -47,10 +47,7 @@
     }
 
     .content-profissional {
-        width: fit-content;
-
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        width: 100%;
         padding-bottom: 40px;
 
         @media only screen and (max-width: 770px) {
@@ -58,5 +55,26 @@
             flex-direction: column;
             width: 100%;
         }
+    }
+}
+
+.profissional-details {
+    width: fit-content;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+
+    h4 {
+        margin: 0px;
+        margin-top: 12px;
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 12px !important;
+        font-weight: 300;
+        line-height: 16px;
     }
 }
