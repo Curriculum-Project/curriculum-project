@@ -1,4 +1,4 @@
-name: Create Experiencia Profissional
+name: Create Markdown
 
 on:
   issues:
