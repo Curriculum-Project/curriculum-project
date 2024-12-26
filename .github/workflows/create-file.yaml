@@ -41,8 +41,9 @@ jobs:
 
       - name: Create issue as Markdown file for Qualification
         if: github.event.label.name == 'qualification'
-        run: chmod +x ./scripts/create_qualification.sh
-        run: ./scripts/create_qualification.sh
+        run: |
+          chmod +x ./scripts/create_qualification.sh
+          ./scripts/create_qualification.sh
         shell: bash
 
       - name: Commit and Push changes
